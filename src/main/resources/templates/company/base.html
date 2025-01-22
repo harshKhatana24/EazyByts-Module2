@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="Layout(content,script)">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="/css/output.css">
+</head>
+<body>
+
+
+<!-- Header Section -->
+<header class="bg-gray-800 text-white shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="flex items-center">
+      <img class="h-10 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Stock Simulator Logo">
+      <span class="ml-4 text-2xl font-semibold">Stock Trade Simulator</span>
+    </div>
+    <nav class="hidden md:flex space-x-6">
+      <a href="/admin/home" class="hover:bg-gray-700 rounded-md px-4 py-2">Home</a>
+      <a href="/admin/addStocks" class="hover:bg-gray-700 rounded-md px-4 py-2">Add Stocks</a>
+      <a href="/admin/viewStocks" class="hover:bg-gray-700 rounded-md px-4 py-2">View Stocks</a>
+      <a href="/do-logout" class="hover:bg-gray-700 rounded-md px-4 py-2">Logout</a>
+    </nav>
+    <div class="md:hidden flex items-center">
+      <!-- Mobile menu toggle -->
+      <button id="mobile-menu-toggle" class="text-gray-300 hover:text-white focus:outline-none">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="md:hidden bg-gray-800 text-white hidden">
+  <div class="px-6 py-4 space-y-4">
+    <a href="/admin/home" class="block">Home</a>
+    <a href="/admin/addStocks" class="block">Add Stocks</a>
+    <a href="/admin/viewStocks" class="block">View Stocks</a>
+    <a href="/do-logout" class="block">Logout</a>
+  </div>
+</div>
+
+<div th:replace="${content}"></div>
+
+</body>
+</html>

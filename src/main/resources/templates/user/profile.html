@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>User Profile</title>
+ <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+ <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-blue-50 to-blue-100 font-sans text-gray-900">
+<section class="flex items-center justify-center min-h-screen">
+ <div class="bg-white shadow-xl rounded-lg p-8 max-w-lg w-full">
+  <div class="text-center mb-6">
+   <img class="w-24 h-24 rounded-full mx-auto border-4 border-blue-500"
+        src="https://storage.googleapis.com/a1aa/image/MZ9gQntpykpPCRH7u9UweBcom2sqC0EKPB6DuHEfdPvpxRHUA.jpg"
+        alt="User profile picture">
+   <h1 class="text-3xl font-bold text-gray-800 mt-4" data-th-text="${name}">John Doe</h1>
+   <p class="text-gray-500" data-th-text="${email}">john.doe@example.com</p>
+  </div>
+  <div class="space-y-4">
+   <div>
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+    <h3 class="bg-gray-50 border rounded-lg py-3 px-4 text-gray-700 shadow-sm"
+        data-th-text="${name}" id="name">John Doe</h3>
+   </div>
+   <div>
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+    <h3 class="bg-gray-50 border rounded-lg py-3 px-4 text-gray-700 shadow-sm"
+        data-th-text="${email}" id="email">john.doe@example.com</h3>
+   </div>
+   <div>
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="balance">Account Balance</label>
+    <h3 class="bg-gray-50 border rounded-lg py-3 px-4 text-gray-700 shadow-sm"
+        data-th-text="${balance}" id="balance">$5,000</h3>
+   </div>
+  </div>
+  <div class="mt-6 text-center">
+   <a href="/user/home"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg">
+    Go Back
+   </a>
+  </div>
+ </div>
+</section>
+<script>
+ console.log("User profile page loaded successfully");
+</script>
+</body>
+</html>

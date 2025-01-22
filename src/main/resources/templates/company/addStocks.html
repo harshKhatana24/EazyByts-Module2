@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="/company/base::Layout(~{::section}, ~{::script})">
+<head>
+  <meta charset="UTF-8">
+  <title>add stocks</title>
+  <link rel="stylesheet" href="/css/output.css">
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+
+<section>
+
+  <!-- Main Content Section -->
+  <main class="h-screen py-12 bg-gray-50">
+
+    <section class=" flex items-center justify-center py-10">
+      <div class="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+        <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6">Add Stocks for Trade</h1>
+
+        <!-- Message Block -->
+        <th:block th:if="${session.msg}">
+          <p class="text-center text-blue-600" th:text="${session.msg}"></p>
+          <th:block th:text="${@sessionHelper.removeMessage()}"></th:block>
+        </th:block>
+
+        <!-- Form -->
+        <form
+                th:action="@{/admin/addStocks}"
+                data-th-object="${form}"
+                method="post" class="space-y-6"
+                novalidate>
+
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Stock Unique ID</label>
+            <input
+                    th:field="*{stockUniqueId}"
+                    type="text" placeholder="Enter stock unique ID here"
+                    class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required />
+
+            <p
+                    data-th-if="${#fields.hasErrors('stockUniqueId')}"
+                    data-th-errors="*{stockUniqueId}"
+                    class="text-red-600 px-1 py-1">Error!!!</p>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Stock Company Name / Company Subpart Name</label>
+            <input
+                    th:field="*{name}"
+                    type="text" placeholder="Enter name here"
+                    class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required />
+
+            <p
+                    data-th-if="${#fields.hasErrors('name')}"
+                    data-th-errors="*{name}"
+                    class="text-red-600 px-1 py-1">Error!!!</p>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Stock Price</label>
+            <input
+
+                    th:field="*{price}"
+                    type="text" placeholder="Enter stock price here"
+                    class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required />
+          </div>
+
+          <div class="mb-4">
+            <h1 class="text-2xl text-red-600">once you click submit, they will be available in market</h1>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="flex justify-between">
+            <button type="submit"
+                    class="w-full bg-blue-700 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300">
+              Trade
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+
+  </main>
+</section>
+
+
+<script>
+
+  console.log("add stock page")
+
+</script>
+</body>
+</html>

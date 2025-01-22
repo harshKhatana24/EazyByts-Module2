@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="/user/base::Layout(~{::section}, ~{::script})">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Portfolio</title>
+  <link rel="stylesheet" href="/css/output.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+
+  <!-- Add Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body class="bg-gray-50">
+
+<!-- Main Section -->
+<section class="min-h-screen py-12">
+  <div class="container mx-auto px-4">
+
+    <!-- User Info Section -->
+    <div class="bg-white shadow-md rounded-lg p-6 mb-8 flex justify-between items-center">
+      <div>
+        <h1 class="text-3xl font-bold text-gray-800">Welcome, <span th:text="${name}">User Name</span></h1>
+        <p class="text-lg text-gray-600 mt-2">Current Balance: $<span th:text="${balance}">1000</span></p>
+      </div>
+    </div>
+
+    <!-- Page Header -->
+    <header class="text-center mb-12">
+      <h2 class="text-4xl font-extrabold text-gray-800">Your Stocks List</h2>
+      <p class="text-lg text-gray-600 mt-2">Browse through the latest stock prices and company information.</p>
+    </header>
+
+    <!-- Stocks List Container -->
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-5xl mx-auto">
+      <!-- List of Stocks -->
+      <ul class="divide-y divide-gray-200">
+        <!-- Iterate over the list of stocks -->
+        <li th:each="stock : ${stocks}" class="py-6 hover:bg-gray-100 transition duration-300">
+          <div class="flex items-center space-x-6">
+            <!-- Stock Image -->
+            <img th:src="@{${stock.image}}" alt="Stock Logo"
+                 class="w-16 h-16 rounded-full border border-gray-300 shadow-sm">
+
+            <!-- Stock Details -->
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold text-gray-800" th:text="${stock.companyName}"></h3>
+              <p class="text-sm text-gray-500 mt-1">Stock Price: $
+                <span class="font-medium text-gray-700" th:text="${stock.stockPrice}"></span>
+              </p>
+              <p class="text-sm text-gray-500 mt-1">Unique ID:
+                <span class="font-mono text-gray-700" th:text="${stock.stockUniqueId}"></span>
+              </p>
+              <p class="text-sm text-gray-500 mt-1">Stock Quantity:
+                <span class="font-mono text-gray-700" th:text="${stock.stockQuantity}"></span>
+              </p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="ml-4">
+
+              <button th:onclick="deleteContact([[${stock.stockUniqueId}]])" class="text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md">
+                Sell
+              </button>
+
+
+
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  console.log("User portfolio page loaded");
+</script>
+<script src="/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@linways/table-to-excel@1.0.4/dist/tableToExcel.min.js"></script>
+</body>
+</html>

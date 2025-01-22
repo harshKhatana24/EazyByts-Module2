@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="/user/base::Layout(~{::section}, ~{::script})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Stocks</title>
+    <link rel="stylesheet" href="/css/output.css">
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+<section class="min-h-screen flex items-center justify-center py-12">
+    <div class="container mx-auto px-4">
+        <!-- Page Header -->
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-extrabold text-gray-800">Stocks List</h1>
+            <p class="text-gray-600 mt-2">Browse through the latest stock prices and company information.</p>
+        </header>
+
+        <!-- Stocks List Container -->
+        <div class="bg-white shadow-lg rounded-lg p-6 max-w-4xl mx-auto">
+            <!-- List of Stocks -->
+            <ul class="divide-y divide-gray-200">
+                <!-- Iterate over the list of stocks -->
+                <li th:each="stock : ${stocks}" class="py-6">
+                    <div class="flex items-center space-x-6">
+                        <!-- Stock Image -->
+                        <img th:src="@{${stock.image}}" alt="Stock Logo"
+                             class="w-16 h-16 rounded-full border border-gray-300 shadow-sm">
+
+                        <!-- Stock Details -->
+                        <div class="flex-1">
+                            <h2 class="text-lg font-bold text-gray-800" th:text="${stock.companyName}"></h2>
+                            <p class="text-sm text-gray-500">Price:
+                                <span class="font-medium text-gray-700" th:text="${stock.stockPrice}"></span>
+                            </p>
+                            <p class="text-sm text-gray-500">Unique ID:
+                                <span class="font-mono text-gray-700" th:text="${stock.stockUniqueId}"></span>
+                            </p>
+                            <br>
+                            <hr>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div>
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded shadow">
+                                View
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<script>
+    console.log("View Stock Page Loaded");
+</script>
+</body>
+</html>

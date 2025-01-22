@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="base::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+<section class="min-h-screen flex items-center justify-center py-10">
+    <div class="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+        <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6">Create an Account</h1>
+
+        <!-- Message Block -->
+        <th:block th:if="${session.msg}">
+            <p class="text-center" th:text="${session.msg}"></p>
+            <th:block th:text="${@sessionHelper.removeMessage()}"></th:block>
+        </th:block>
+
+        <!-- Form -->
+        <form th:action="@{/createUser}" method="post" class="space-y-6" novalidate>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Full Name</label>
+                <input type="text" name="fullName" placeholder="Enter your name"
+                       class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       required />
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Email Address</label>
+                <input type="text" name="email" placeholder="Enter your email"
+                       class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       required />
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" name="password" placeholder="Enter your password"
+                       class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       required />
+            </div>
+
+            <!-- Choose Role -->
+            <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900">Select Role</label>
+                <select  name="role"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <option value="ROLE_USER">USER</option>
+                    <option value="ROLE_ADMIN">COMPANY</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex justify-between">
+                <button type="submit"
+                        class="w-full bg-blue-700 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                    Sign Up
+                </button>
+            </div>
+
+            <!-- Login Redirect -->
+            <div class="text-center mt-4">
+                <p class="text-sm text-gray-600">Already have an account? <a href="/signin" class="text-blue-600 hover:underline">Login here</a></p>
+            </div>
+
+        </form>
+    </div>
+</section>
+
+</body>
+</html>
+

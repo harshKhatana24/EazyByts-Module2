@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="/user/base::Layout(~{::section}, ~{::script})">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Trade Simulator | Dashboard</title>
+</head>
+
+<body class="bg-gray-50 font-sans text-gray-900">
+
+
+<section>
+
+
+
+  <!-- Quick Actions Section -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-gray-900 text-center mb-10">Quick Actions</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-indigo-600 text-white shadow-lg rounded-lg p-6 flex items-center justify-between">
+          <div>
+            <a class="text-xl font-semibold">Buy Stocks</a>
+            <p class="text-sm text-gray-200">Start investing in top-performing stocks.</p>
+          </div>
+          <a href="/user/portfolio" class="bg-indigo-700 hover:bg-indigo-800 text-white px-4 py-2 rounded-full">Buy</a>
+        </div>
+        <div class="bg-green-600 text-white shadow-lg rounded-lg p-6 flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-semibold">Sell Stocks</h3>
+            <p class="text-sm text-gray-200">Sell your stocks and cash out for profits.</p>
+          </div>
+          <a href="/user/portfolio" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-full">Sell</a>
+        </div>
+        <div class="bg-gray-800 text-white shadow-lg rounded-lg p-6 flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-semibold">View Portfolio</h3>
+            <p class="text-sm text-gray-200">Track your stock investments in one place.</p>
+          </div>
+          <a href="/user/portfolio" class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-full">View</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Account Info Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-gray-900 text-center mb-10">Your Account</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Account Balance Card -->
+        <div class="bg-white shadow-lg rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-gray-800">Account Balance</h3>
+          <p class="text-3xl text-gray-900" data-th-text="'$' + ${balance}">$50,250.00</p>
+        </div>
+        <!-- Go to Profile Card -->
+        <div class="bg-white shadow-lg rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-gray-800">View Profile</h3>
+          <p class="text-sm text-gray-500">View your profile and security settings.</p>
+          <a href="/user/profile" class="text-indigo-600 hover:underline">Go to Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div class="text-sm text-gray-400">&copy; 2025 StockTrade Corp, Inc. All rights reserved.</div>
+      <div class="space-x-6">
+        <a href="/about" class="text-gray-400 hover:text-white">About Us</a>
+        <a href="/contact" class="text-gray-400 hover:text-white">Contact</a>
+        <a href="/privacy" class="text-gray-400 hover:text-white">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+
+</section>
+
+
+
+
+<script>
+  // Toggle mobile menu visibility
+  document.getElementById('mobile-menu-toggle').addEventListener('click', function () {
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+</body>
+
+</html>
+
+

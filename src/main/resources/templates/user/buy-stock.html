@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="/user/base::Layout(~{::section}, ~{::script})">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>View Stocks</title>
+ <link rel="stylesheet" href="/css/output.css">
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+<section class="min-h-screen flex flex-col items-center justify-center py-12">
+ <div class="container mx-auto p-4">
+  <h1 class="text-4xl font-bold mb-8 text-center text-gray-800">Buy Stocks</h1>
+  <div class="bg-white shadow-lg rounded-lg p-8">
+   <h2 class="text-2xl font-bold text-gray-800 mb-6">Purchase Stock</h2>
+   <form th:object="${form}" th:action="@{/user/buy-stock}" method="POST">
+
+    <!-- Stock Dropdown -->
+    <div class="mb-6">
+     <label class="block text-gray-700 text-sm font-bold mb-2" for="stockUniqueId">Select Stock</label>
+     <select th:field="*{UniqueStockID}"
+             class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+             id="stockUniqueId">
+      <option value="" disabled selected>Select a stock</option>
+      <th:block th:each="stock : ${stocks}">
+       <option th:value="${stock.stockUniqueId}"
+               th:data-stock-price="${stock.stockPrice}"
+               th:text="${stock.companyName + ' - $' + stock.stockPrice}"></option>
+      </th:block>
+     </select>
+    </div>
+
+    <!-- Stock Price Display -->
+    <div class="mb-6">
+     <label class="block text-gray-700 text-sm font-bold mb-2" for="stockPrice">Stock Price</label>
+     <input th:field="*{stockPrice}"
+            class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100"
+            id="stockPrice"
+            type="text"
+            readonly />
+    </div>
+
+    <!-- Amount Input -->
+    <div class="mb-6">
+     <label class="block text-gray-700 text-sm font-bold mb-2" for="stockQuantity">Quantity</label>
+     <input th:field="*{StockQuantity}"
+            class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="stockQuantity"
+            name="stockQuantity"
+            placeholder="Enter quantity"
+            type="number"
+            min="1" />
+    </div>
+
+    <!-- Submit Button -->
+    <div class="flex items-center justify-center">
+     <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" type="submit">
+      Buy Stock
+     </button>
+    </div>
+   </form>
+  </div>
+ </div>
+</section>
+
+<script>
+ console.log("buy-stock page");
+</script>
+</body>
+</html>

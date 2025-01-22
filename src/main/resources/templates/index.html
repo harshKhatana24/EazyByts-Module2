@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org"
+        th:replace="base::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Index Page</title>
+    <link rel="stylesheet" href="/css/output.css">
+    <style>
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .animate-marquee {
+            animation: marquee 15s linear infinite;
+        }
+    </style>
+</head>
+
+<body class="font-roboto bg-gray-100 p-4">
+
+<section class="p-8">
+    <main class="container mx-auto p-4">
+        <section class="text-center my-8">
+            <h2 class="text-3xl font-bold mb-4">
+                Welcome to the Stock Trading Simulator
+            </h2>
+            <p class="text-lg mb-6">
+                Experience the thrill of trading stocks without any financial risk. Perfect for beginners and experts alike.
+            </p>
+            <a
+                    href="/register"
+                    class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">
+                Get Started
+            </a>
+        </section>
+
+
+
+
+        <div class="flex justify-center items-center py-12 bg-gray-100">
+            <!-- Pulsating Line with Moving Content -->
+            <div class="relative w-full max-w-4xl bg-gray-200 h-1 rounded-full overflow-hidden">
+                <div class="absolute left-0 top-0 w-full h-full animate-pulse bg-blue-500"></div>
+                <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
+                    <div class="whitespace-nowrap animate-marquee text-lg font-semibold text-blue-500">
+                        🚀 Welcome to the Stock Trading Simulator! 💹 Buy and Sell Stocks with Real-Time Data 📈
+                        &nbsp; &nbsp; 💥 Explore the Market & Start Trading Today! 💰
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="my-8">
+
+
+            <h3 class="text-2xl font-bold mb-4">
+                Latest News
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <img alt="Stock market graph showing upward trend" class="w-full h-48 object-cover rounded-t-lg" height="200" src="https://storage.googleapis.com/a1aa/image/izMZ8hZwxdbfSCLynTjlceSRqqi9jNE9kMQ4IuhVuYKBxUHUA.jpg" width="300"/>
+                    <h4 class="text-xl font-bold mt-4">
+                        Stock Market Hits Record Highs
+                    </h4>
+                    <p class="mt-2">
+                        The stock market reached new heights today, with major indices showing significant gains.
+                    </p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <img alt="Person analyzing stock data on a computer" class="w-full h-48 object-cover rounded-t-lg" height="200" src="https://storage.googleapis.com/a1aa/image/eUFhbuNImvRRHyFSLUapn77t3HrvxM96yhIyAJwhHyBkYqDKA.jpg" width="300"/>
+                    <h4 class="text-xl font-bold mt-4">
+                        Top 5 Stocks to Watch
+                    </h4>
+                    <p class="mt-2">
+                        Here are the top 5 stocks that analysts are keeping an eye on this week.
+                    </p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <img alt="Financial news headline on a newspaper" class="w-full h-48 object-cover rounded-t-lg" height="200" src="https://storage.googleapis.com/a1aa/image/cAAod5HoAJp7FVVnCIkyAvKIVy6f0jhmf08F0bPVLBeHipOoA.jpg" width="300"/>
+                    <h4 class="text-xl font-bold mt-4">
+                        Economic Outlook for 2023
+                    </h4>
+                    <p class="mt-2">
+                        Experts share their predictions for the economic trends and market movements in 2023.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="my-8">
+            <h3 class="text-2xl font-bold mb-4">
+                Features
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                    <i class="fas fa-chart-line text-blue-600 text-4xl mb-4">
+                    </i>
+                    <h4 class="text-xl font-bold">
+                        Real-Time Data
+                    </h4>
+                    <p class="mt-2">
+                        Get access to real-time stock market data to make informed trading decisions.
+                    </p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                    <i class="fas fa-user-graduate text-blue-600 text-4xl mb-4">
+                    </i>
+                    <h4 class="text-xl font-bold">
+                        Educational Resources
+                    </h4>
+                    <p class="mt-2">
+                        Learn the basics of stock trading with our comprehensive educational resources.
+                    </p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                    <i class="fas fa-mobile-alt text-blue-600 text-4xl mb-4">
+                    </i>
+                    <h4 class="text-xl font-bold">
+                        Mobile Friendly
+                    </h4>
+                    <p class="mt-2">
+                        Trade on the go with our mobile-friendly platform, accessible from any device.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="my-8">
+            <h3 class="text-2xl font-bold mb-4">
+                Images
+            </h3>
+            <div class="flex overflow-x-scroll space-x-4">
+                <img alt="Dynamic image 1 showing stock market trends" class="w-64 h-40 object-cover rounded-lg" height="160" src="https://storage.googleapis.com/a1aa/image/WzZvMAgXfaTXR6SyaI3CrtAivY8mJovkyXwTjWfhzNUHxUHUA.jpg" width="256"/>
+                <img alt="Dynamic image 2 showing financial data analysis" class="w-64 h-40 object-cover rounded-lg" height="160" src="https://storage.googleapis.com/a1aa/image/D47rCSDvKRIoAVX5WXDnmRPUvivLIyEfjL7d5iqR6HiiYqDKA.jpg" width="256"/>
+                <img alt="Dynamic image 3 showing stock trading on a mobile device" class="w-64 h-40 object-cover rounded-lg" height="160" src="https://storage.googleapis.com/a1aa/image/CqesZ9R61T3CP62dShvz0sARChf32XHFrFNA6eq3tG8VipOoA.jpg" width="256"/>
+                <img alt="Dynamic image 4 showing a busy stock exchange floor" class="w-64 h-40 object-cover rounded-lg" height="160" src="https://storage.googleapis.com/a1aa/image/GF3RUectScTdMao5KoFaErGsAGe5HxVOHBxxqxQL3F3AxUHUA.jpg" width="256"/>
+                <img alt="Dynamic image 5 showing a person celebrating stock market success" class="w-64 h-40 object-cover rounded-lg" height="160" src="https://storage.googleapis.com/a1aa/image/Q3chkZXkhxLAFFeOwzVKaIUF5UgKRzcyDcqQ4RhhTLafwUHUA.jpg" width="256"/>
+                </div>
+
+        </section>
+    </main>
+
+</section>
+
+
+<section>
+    <footer class="bg-blue-600 text-white p-4 mt-8">
+        <div class="container mx-auto text-center">
+            <p>
+                © 2023 Stock Trading Simulator. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</section>
+
+</body>
+</html>
